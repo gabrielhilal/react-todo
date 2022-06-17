@@ -1,0 +1,37 @@
+.taskForm {
+ display: flex;
+ justify-content: center;
+ gap: 0.5rem;
+ margin-top: calc(0px - 3.375rem/2);
+}
+
+.taskForm input {
+  height: 3.375rem;
+  width: 50%;
+  border: none;
+  border-radius: 8px;
+  background: var(--grey-500);
+  color: var(--grey-300);
+  padding: 1rem;
+}
+
+.taskForm [type="submit"] {
+  width: 5.625rem;
+  border-radius: 8px;
+  border: 0;
+  color: var(--grey-100);
+  background: var(--blue-500);
+  padding: 1rem;
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+}
+
+.taskForm button[type="submit"]:not(:disabled):hover {
+  background: var(--blue-300);
+}
+
+.taskForm button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
