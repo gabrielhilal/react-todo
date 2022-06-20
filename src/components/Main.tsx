@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import styles from './Main.module.css';
+import { Task } from './Task';
 
 export function Main() {
   interface taskProps {
@@ -31,7 +32,21 @@ export function Main() {
     ]);
   }
 
+  function TaskToggle(id: string) {
+    setTasks(tasks.map(task => {
+      if (task.id === id) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        };
+      }
+
+      return task;
+    }));
+  }
+
   const isNewTaskEmpty = newTaskText.length === 0;
+  const completedCount = tasks.filter(task => task.isCompleted).length;
 
   return (
     <main>
@@ -53,12 +68,20 @@ export function Main() {
 
       <div className={styles.tasksSummary}>
         <p>Tarefas criadas: <span>{tasks.length}</span></p>
-        <p>Concluídas: <span>? de {tasks.length}</span></p>
+        <p>Concluídas: <span>{completedCount} de {tasks.length}</span></p>
       </div>
 
-      {tasks.map(task => (
-        <p key={task.id}>{task.content}</p>
-      ))}
+      <div className={styles.taskList}>
+        {tasks.map(task => (
+          <Task
+            key={task.id}
+            id={task.id}
+            content={task.content}
+            isCompleted={task.isCompleted}
+            onTaskToggle={TaskToggle}
+          />
+        ))}
+      </div>
     </main>
   );
 }
