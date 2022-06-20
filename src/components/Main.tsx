@@ -51,6 +51,11 @@ export function Main() {
         </button>
       </form>
 
+      <div className={styles.tasksSummary}>
+        <p>Tarefas criadas: <span>{tasks.length}</span></p>
+        <p>Concluídas: <span>? de {tasks.length}</span></p>
+      </div>
+
       {tasks.map(task => (
         <p key={task.id}>{task.content}</p>
       ))}
