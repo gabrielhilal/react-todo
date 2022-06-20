@@ -35,5 +35,19 @@ body {
 body, input, textarea, button {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 1rem; /* client font size (16px default) */
+  font-size: 0.875rem;
+}
+main {
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  body, input, textarea, button {
+    font-size: 1rem; /* client font size (16px default) */
+  }
+
+  main {
+    width: 736px;
+    margin: 0 auto;
+  }
 }

@@ -1,13 +1,13 @@
 .taskForm {
- display: flex;
- justify-content: center;
- gap: 0.5rem;
- margin-top: calc(0px - 3.375rem/2);
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: calc(0px - 3.375rem/2);
 }
 
 .taskForm input {
   height: 3.375rem;
-  width: 50%;
+  width: 100%;
   border: none;
   border-radius: 8px;
   background: var(--grey-500);
