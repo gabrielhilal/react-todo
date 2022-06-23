@@ -6,11 +6,16 @@ interface TaskProps {
   content: string;
   isCompleted: boolean;
   onTaskToggle: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 }
 
-export function Task({ id, content, isCompleted, onTaskToggle }:TaskProps) {
+export function Task({ id, content, isCompleted, onTaskToggle, onDeleteTask }:TaskProps) {
   function handleTaskToggle(event: ChangeEvent<HTMLInputElement>) {
     onTaskToggle(id);
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask(id);
   }
 
   return (
@@ -21,6 +26,12 @@ export function Task({ id, content, isCompleted, onTaskToggle }:TaskProps) {
         onChange={handleTaskToggle}
       />
       <p className={isCompleted ? styles.textDisabled : ''}>{content}</p>
+      <button
+        className={styles.deleteButton}
+        onClick={handleDeleteTask}
+      >
+        X
+      </button>
     </div>
   );
 }

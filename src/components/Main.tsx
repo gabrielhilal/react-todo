@@ -45,6 +45,10 @@ export function Main() {
     }));
   }
 
+  function deleteTask(id: string) {
+    setTasks(tasks.filter(task => task.id !== id));
+  }
+
   const isNewTaskEmpty = newTaskText.length === 0;
   const completedCount = tasks.filter(task => task.isCompleted).length;
 
@@ -79,6 +83,7 @@ export function Main() {
             content={task.content}
             isCompleted={task.isCompleted}
             onTaskToggle={TaskToggle}
+            onDeleteTask={deleteTask}
           />
         ))}
       </div>
