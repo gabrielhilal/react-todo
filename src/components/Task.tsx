@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react';
 import styles from './Task.module.css';
+import { Trash } from 'phosphor-react';
 
 interface TaskProps {
   id: string;
@@ -30,7 +31,7 @@ export function Task({ id, content, isCompleted, onTaskToggle, onDeleteTask }:Ta
         className={styles.deleteButton}
         onClick={handleDeleteTask}
       >
-        X
+        <Trash size={14} />
       </button>
     </div>
   );

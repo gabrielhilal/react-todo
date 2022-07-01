@@ -19,4 +19,12 @@
 
 .deleteButton {
   margin-left: auto;
+  background: transparent;
+  border: 0;
+  color: var(--grey-300);
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  color: var(--red-500);
 }
